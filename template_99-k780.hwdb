@@ -1,0 +1,22 @@
+# Logitech K780 map:
+# Swapping the function keys and media keys
+evdev:input:CAMBIAR*
+  KEYBOARD_KEY_c0223=f4
+  KEYBOARD_KEY_70065=f5
+  KEYBOARD_KEY_c0224=f6
+  KEYBOARD_KEY_c00b6=f7
+  KEYBOARD_KEY_c00cd=f8
+  KEYBOARD_KEY_c00b5=f9
+  KEYBOARD_KEY_c00e2=f10
+  KEYBOARD_KEY_c00ea=f11
+  KEYBOARD_KEY_c00e9=f12
+#Mapping old FN keys back to media keys  
+  KEYBOARD_KEY_7003d=homepage
+  KEYBOARD_KEY_7003e=compose
+  KEYBOARD_KEY_7003f=back
+  KEYBOARD_KEY_70040=previoussong
+  KEYBOARD_KEY_70041=playpause
+  KEYBOARD_KEY_70042=nextsong
+  KEYBOARD_KEY_70043=mute
+  KEYBOARD_KEY_70044=volumedown
+  KEYBOARD_KEY_70045=volumeup
