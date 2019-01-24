@@ -46,7 +46,7 @@ def defineevdev(data):
     return configuration
 
             
-def createConfigurationFile(data, ubication_udev, ubication_copy_udev):
+def createConfigurationFile(data, ubication_copy_udev):
     evdev = defineevdev(data)
     template = open('template_99-k780.hwdb', 'r')
     final = open('99-k780.hwdb', 'w')
@@ -54,11 +54,9 @@ def createConfigurationFile(data, ubication_udev, ubication_copy_udev):
         final.write(line.replace('CAMBIAR', evdev))
     template.close()
     final.close()
-    ubication_udev += '/99-k780.hwdb'
     ubication_copy_udev += '/99-k780.hwdb'
     # runCommand(['cp', '99-k780.hwdb {}99-k780.hwdb'.format(ubication_udev)])
     # runCommand(['cp', '99-k780.hwdb {}99-k780.hwdb'.format(ubication_copy_udev)])
-    runCommand(['sudo', 'cp', '99-k780.hwdb', ubication_udev])
     runCommand(['sudo', 'cp', '99-k780.hwdb', ubication_copy_udev])
     runCommand(['rm', '99-k780.hwdb'])
 
@@ -81,7 +79,6 @@ def persistence(ubication_service):
 def main():
     #**********************************#
     #************ EDITABLE ************#
-    ubication_of_udev_hwdbd = '/lib/udev/hwdb.d'
     ubication_to_copy_udev_hwdbd = '/etc/udev/hwdb.d'
     # ubication_of_udev_hwdbd = '/home/adri/Desktop'
     # ubication_to_copy_udev_hwdbd = '/home/adri/Downloads'
@@ -90,7 +87,7 @@ def main():
 
     data = obtainDataKeyboard()
     if data is not False:
-        createConfigurationFile(data, ubication_of_udev_hwdbd, ubication_to_copy_udev_hwdbd)
+        createConfigurationFile(data, ubication_to_copy_udev_hwdbd)
         persistence(ubication_service)
 
 if __name__ == "__main__":
